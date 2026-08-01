@@ -117,8 +117,6 @@ npm install
 npm run dev
 ```
 
-The application will launch on **http://localhost:5173/InternshipTracker2/**.
-
 ---
 
 ## 📈 Git Repository
