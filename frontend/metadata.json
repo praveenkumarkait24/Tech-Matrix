@@ -1,0 +1,6 @@
+{
+  "name": "InternFlow - Enterprise Internship Portal",
+  "description": "Enterprise Internship Management & Placement Portal with multi-level approval workflows for Students, Mentors, HODs, and Placement Cells.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

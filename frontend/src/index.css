@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-indigo-600: #7D53F6;
+  --color-indigo-700: oklch(0.55 0.23 286);
+  --color-violet-600: #7D53F6;
+  --color-violet-700: oklch(0.55 0.23 286);
+  --color-[#7c4dff]: #7D53F6;
+  --color-[#7D53F6]: #7D53F6;
+}
+
+:root {
+  --brand-color: #7D53F6;
+  --brand-oklch: oklch(0.61 0.23 286);
+}
+
+/* Ensure all primary buttons and brand elements use exact #7D53F6 / oklch(0.61 0.23 286) */
+.bg-brand,
+.bg-\[\#7c4dff\],
+.bg-\[\#7D53F6\],
+button.bg-indigo-600,
+button.bg-violet-600 {
+  background-color: #7D53F6 !important;
+}
+
+.bg-brand-hover:hover,
+.hover\:bg-\[\#6b3bf0\]:hover,
+.hover\:bg-\[\#6c42e0\]:hover,
+button.bg-indigo-600:hover,
+button.bg-violet-600:hover {
+  background-color: oklch(0.55 0.23 286) !important;
+}
+
+.text-brand,
+.text-\[\#7c4dff\],
+.text-\[\#7D53F6\] {
+  color: #7D53F6 !important;
+}
+
+.border-brand,
+.border-\[\#7D53F6\] {
+  border-color: #7D53F6 !important;
+}
+
+.focus\:border-\[\#7c4dff\]:focus,
+.focus\:border-\[\#7D53F6\]:focus {
+  border-color: #7D53F6 !important;
+}
