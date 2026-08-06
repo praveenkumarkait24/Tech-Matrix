@@ -130,3 +130,13 @@ npm run dev
 ## 📈 Git Repository
 The workspace is linked and pushed directly to the remote repository:
 👉 [https://github.com/praveenkumarkait24/Tech-Matrix](https://github.com/praveenkumarkait24/Tech-Matrix)
+
+---
+
+## 👥 Team Details - Tech Matrix
+
+* **Team Leader**: **Indresh S** (Roll No: `7376242IT181`, Email: [indreshs.it24@bitsathy.ac.in](mailto:indreshs.it24@bitsathy.ac.in))
+* **Team Member 1**: **Praveen Kumar K A** (Roll No: `7376242IT259`, Email: [praveenkumarka.it24@bitsathy.ac.in](mailto:praveenkumarka.it24@bitsathy.ac.in))
+* **Team Member 2**: **Harish Ahamed K** (Roll No: `7376242IT175`, Email: [harishahamedk.it24@bitsathy.ac.in](mailto:harishahamedk.it24@bitsathy.ac.in))
+
+*Department of Information Technology, Bannari Amman Institute of Technology.*
