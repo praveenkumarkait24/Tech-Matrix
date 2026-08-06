@@ -658,6 +658,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const orderNo = applications.length + 1;
     const rollNo = currentUser.studentId || newAppData.studentId || currentUser.id || 'STUDENT';
     const id = `IN-${orderNo}-${rollNo}`;
+
+    const defaultMentor = usersList.find(u => u.role === 'mentor') || {
+      id: 'USR-MNT-002',
+      name: 'Dr. Helena Vance'
+    };
+
     const fullApp: InternshipApplication = {
       id,
       studentId: currentUser.id || 'USR-STU-001',
@@ -691,8 +697,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       lastUpdated: 'Just now',
       priority: 'Normal',
 
-      assignedMentorId: 'USR-MNT-002',
-      assignedMentorName: 'Dr. Helena Vance',
+      assignedMentorId: defaultMentor.id,
+      assignedMentorName: defaultMentor.name,
 
       documents: newAppData.documents || [
         {
