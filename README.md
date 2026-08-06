@@ -2,6 +2,14 @@
 
 An enterprise-grade University Internship Lifecycle Tracker and Corporate Portal built to manage internships from initial application submission to final NOC endorsement, weekly journal logging, and report evaluation.
 
+🔗 **Live Deployment**: [https://praveenkumarkait24-tech-matrix.netlify.app](https://praveenkumarkait24-tech-matrix.netlify.app)
+
+---
+
+## 📸 Project Preview
+
+![Dashboard Preview](./dashboard_preview.png)
+
 ---
 
 ## 🌟 Key Features
