@@ -12,7 +12,8 @@ import {
   ExternalLink,
   ShieldAlert,
   ArrowRight,
-  Menu
+  Menu,
+  LogOut
 } from 'lucide-react';
 import { UserRole } from '../../types';
 
@@ -37,7 +38,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onToggleSidebar }) => {
     {
       id: 1,
       title: 'Application Under Mentor Review',
-      message: 'PRAVEEN KUMAR K A (APP-2024-0842) submitted Vercel Inc offer letter.',
+      message: 'PRAVEEN KUMAR K A (IN-2-7376242IT259) submitted Vercel Inc offer letter.',
       time: '12 mins ago',
       read: false
     },
@@ -95,7 +96,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onToggleSidebar }) => {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search applications (e.g. APP-2024-0842, Vercel)..."
+            placeholder="Search applications (e.g. IN-1-7376242CS0842, Vercel)..."
             className="w-full pl-9 pr-8 py-2 bg-slate-50 hover:bg-slate-100 focus:bg-white text-xs border border-slate-200 focus:border-indigo-500 rounded-lg outline-none transition-all text-slate-800 placeholder-slate-400"
           />
           {searchQuery && (
@@ -145,8 +146,17 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onToggleSidebar }) => {
 
 
       {/* Right Controls */}
-      <div className="flex items-center gap-2">
-
+      <div className="flex items-center gap-3">
+        {/* Help */}
+        {currentRole !== 'student' && (
+          <button
+            onClick={() => openModal('ai_assistant')}
+            className="p-2 hover:bg-slate-100 rounded-lg text-slate-600 transition-colors cursor-pointer"
+            title="Help & Support"
+          >
+            <HelpCircle className="w-4 h-4" />
+          </button>
+        )}
 
         {/* Notifications */}
         <div className="relative">
@@ -195,16 +205,23 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onToggleSidebar }) => {
           )}
         </div>
 
-        {/* Help */}
-        {currentRole !== 'student' && (
+        {/* User Profile Block */}
+        <div className="flex items-center gap-2.5 p-1.5 bg-purple-50/40 hover:bg-purple-50/80 rounded-xl border border-purple-200/80 shadow-2xs transition-all duration-200 ml-1.5 shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[#7D53F6] text-white flex items-center justify-center font-extrabold text-xs tracking-wide shrink-0 uppercase ring-2 ring-purple-400/50">
+            {currentUser?.name ? currentUser.name.charAt(0) : '?'}
+          </div>
+          <div className="hidden sm:block min-w-0 max-w-[145px] text-left">
+            <h2 className="text-[11px] font-bold text-slate-900 truncate leading-tight">{currentUser?.name || 'Loading...'}</h2>
+            <p className="text-[9px] text-slate-500 truncate leading-none mt-0.5">{currentUser?.title || ''}</p>
+          </div>
           <button
-            onClick={() => openModal('ai_assistant')}
-            className="p-2 hover:bg-slate-100 rounded-lg text-slate-600 transition-colors cursor-pointer"
-            title="Help & Support"
+            onClick={() => switchRole('public')}
+            title="Switch Portal Role or Sign Out"
+            className="p-1 hover:bg-rose-50 rounded-lg text-slate-400 hover:text-rose-600 transition-colors cursor-pointer shrink-0"
           >
-            <HelpCircle className="w-4 h-4" />
+            <LogOut className="w-3.5 h-3.5" />
           </button>
-        )}
+        </div>
       </div>
     </header>
   );

@@ -41,6 +41,11 @@ export const StudentDashboard: React.FC = () => {
   const isNocIssued = !!nocDoc;
 
   const downloadDoc = (doc: any) => {
+    if (doc.url && doc.url !== '#' && doc.url.startsWith('http')) {
+      window.open(doc.url, '_blank');
+      showToast('Download Started', `Downloading ${doc.name || 'document.pdf'}`, 'success');
+      return;
+    }
     const docName = doc.name || 'Document.pdf';
     const docText = `==================================================
 DOCUMENT RECORD: ${docName}
@@ -243,13 +248,7 @@ System Digital Stamp: Verified by Academic Directorate.
             </button>
           )}
 
-          <button
-            onClick={() => navigateTo('reports')}
-            className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-all flex items-center gap-2 cursor-pointer border border-slate-200"
-          >
-            <FileText className="w-4 h-4 text-indigo-600" />
-            <span>Upload Weekly Log</span>
-          </button>
+
 
           <button
             onClick={() => navigateTo('new-application')}
@@ -355,14 +354,14 @@ System Digital Stamp: Verified by Academic Directorate.
 
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md transition-shadow">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Reward Points</span>
-            <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">CGPA</span>
+            <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
               <Award className="w-5 h-5" />
             </div>
           </div>
           <div className="mt-3 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-slate-900">{currentUser.rewardPoints || 1150} pts</span>
-            <span className="text-xs font-semibold text-purple-600">Top 5%</span>
+            <span className="text-2xl font-black text-slate-900">{currentUser.cgpa || 3.89}</span>
+            <span className="text-xs font-semibold text-indigo-600">Scale: 4.00</span>
           </div>
         </div>
       </div>
@@ -539,7 +538,7 @@ System Digital Stamp: Verified by Academic Directorate.
                                     name: file.name,
                                     type: slot.type,
                                     size: `${(file.size / (1024 * 1024)).toFixed(1)} MB`
-                                  });
+                                  }, file);
                                 }
                               }}
                             />

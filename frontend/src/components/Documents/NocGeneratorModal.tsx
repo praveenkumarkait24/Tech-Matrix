@@ -8,8 +8,8 @@ export const NocGeneratorModal: React.FC = () => {
   if (activeModal !== 'noc_generator') return null;
 
   const app = (selectedApplicationId && getApplicationById(selectedApplicationId)) || 
-              getApplicationById('APP-2024-0259') || 
-              getApplicationById('APP-2024-0842');
+              getApplicationById('IN-2-7376242IT259') || 
+              getApplicationById('IN-1-7376242CS0842');
 
   if (!app) {
     return (

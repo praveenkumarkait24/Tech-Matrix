@@ -54,7 +54,7 @@ export interface ApprovalStep {
 }
 
 export interface InternshipApplication {
-  id: string; // e.g. APP-2024-0842
+  id: string; // e.g. IN-1-7376242CS0842
   studentId: string;
   studentName: string;
   studentAvatar: string;

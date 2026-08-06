@@ -32,7 +32,7 @@ insert into public.applications (
 )
 values
   (
-    'APP-2024-0842', 'USR-STU-0842', 'Arjun Malhotra', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80', 'arjun.m@university.edu', 'B.Tech Computer Science', 'Computer Science & Engineering', 3.92,
+    'IN-1-7376242CS0842', 'USR-STU-0842', 'Arjun Malhotra', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80', 'arjun.m@university.edu', 'B.Tech Computer Science', 'Computer Science & Engineering', 3.92,
     'Vercel Inc.', 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=80', 'Cloud & Web Infrastructure', 'https://vercel.com', '340 S Lemon Ave #4133, Walnut, CA 91789, USA', 'Sarah Parker', 's.parker@vercel.com', '+1 (415) 890-3411',
     'Senior Frontend Engineering Intern', 'Hybrid', 'San Francisco, CA / Remote', '2024-11-01', '2025-05-01', 6, 2500, 'USD',
     'mentor_review', '2024-10-12', '2024-10-14 10:30 AM', 'High', 'USR-MNT-002', 'Dr. Helena Vance',
@@ -51,7 +51,7 @@ values
     '192.168.1.104', '0x8f2a...91ce'
   ),
   (
-    'APP-2024-0799', 'USR-STU-001', 'Alex Rivera', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80', 'alex.rivera@university.edu', 'B.Tech Software Engineering', 'Computer Science & Engineering', 3.89,
+    'IN-2-7376242IT259', 'USR-STU-001', 'Alex Rivera', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80', 'alex.rivera@university.edu', 'B.Tech Software Engineering', 'Computer Science & Engineering', 3.89,
     'CloudCore Systems', 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&auto=format&fit=crop&q=80', 'Enterprise SaaS', 'https://cloudcore.io', '100 Silicon Way, Austin, TX 78701', 'Marcus Vance', 'marcus@cloudcore.io', '+1 (512) 440-1920',
     'Junior Frontend Developer Intern', 'Remote', 'Austin, TX / Remote', '2024-06-01', '2024-12-01', 6, 2200, 'USD',
     'approved', '2024-05-15', '2024-05-20', 'Normal', 'USR-MNT-002', 'Dr. Helena Vance',
@@ -65,7 +65,7 @@ values
     null, '10.0.4.12', '0x3c11...88ab'
   ),
   (
-    'APP-2024-0850', 'USR-STU-0850', 'Sarah Parker', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80', 'sarah.p@university.edu', 'B.Tech Data Science', 'Computer Science & Engineering', 3.95,
+    'IN-3-7376242DS0810', 'USR-STU-0850', 'Sarah Parker', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80', 'sarah.p@university.edu', 'B.Tech Data Science', 'Computer Science & Engineering', 3.95,
     'Nexus Tech Systems', 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=100&auto=format&fit=crop&q=80', 'AI & Machine Learning', 'https://nexustech.ai', 'Innovation Tower, Seattle, WA', 'David K.', 'careers@nexustech.ai', '+1 (206) 555-0199',
     'ML Research Intern', 'Onsite', 'Seattle, WA', '2024-11-15', '2025-05-15', 6, 3200, 'USD',
     'hod_review', '2024-10-14', '2024-10-15', 'Urgent', 'USR-MNT-002', 'Dr. Julian Thorne',
@@ -79,7 +79,7 @@ values
     null, '172.16.0.42', '0x99dd...01cc'
   ),
   (
-    'APP-2024-0855', 'USR-STU-0855', 'James Dalton', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80', 'james.d@university.edu', 'B.Com Financial Analytics', 'Commerce & Business Analytics', 3.78,
+    'IN-4-7376242BA0855', 'USR-STU-0855', 'James Dalton', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80', 'james.d@university.edu', 'B.Com Financial Analytics', 'Commerce & Business Analytics', 3.78,
     'Vanguard Finance', 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=100&auto=format&fit=crop&q=80', 'Fintech & Quantitative Trading', 'https://vanguardfin.com', 'Wall Street Plaza, New York, NY', 'Elizabeth Ross', 'e.ross@vanguardfin.com', '+1 (212) 800-4490',
     'Quantitative Risk Intern', 'Hybrid', 'New York, NY', '2024-12-01', '2025-06-01', 6, 2800, 'USD',
     'placement_review', '2024-10-10', '2024-10-16', 'Normal', 'USR-MNT-002', 'Prof. Alan Vance',
@@ -108,7 +108,7 @@ insert into public.tracker_submissions (
 )
 values
   (
-    'TRK-001', 'APP-2024-0842', 'USR-STU-0842', 'Arjun Malhotra', '2026-07-30',
+    'TRK-001', 'IN-1-7376242CS0842', 'USR-STU-0842', 'Arjun Malhotra', '2026-07-30',
     'Designed state machines for approval stage transitions and built backend API route wrappers.',
     'Completed core logic for report generation workflows and successfully ran end-to-end integration tests.',
     'Stage 1 application schema migration, Express router endpoints for PDF generators.',
@@ -128,7 +128,7 @@ insert into public.report_submissions (
 )
 values
   (
-    'REP-SUB-001', 'APP-2024-0842', 'USR-STU-0842', 'Arjun Malhotra', 'Vercel Inc.', 'Cloud & Web Infrastructure', 'Technology', 'https://vercel.com', '340 S Lemon Ave #4133, Walnut, CA 91789, USA',
+    'REP-SUB-001', 'IN-1-7376242CS0842', 'USR-STU-0842', 'Arjun Malhotra', 'Vercel Inc.', 'Cloud & Web Infrastructure', 'Technology', 'https://vercel.com', '340 S Lemon Ave #4133, Walnut, CA 91789, USA',
     '2026-06-01', '2026-07-31', 2, 2500, 'Edge Analytics Dashboard Integrations',
     'Developed full stack dashboard tracking real-time web telemetry and cache hit ratios for Next.js app host deployments.',
     'Next.js, Tailwind v4, React 19, Express, PostgreSQL',
@@ -148,7 +148,7 @@ on conflict (id) do nothing;
 -- 7. Seed Audit Logs
 insert into public.audit_logs (id, timestamp, username, action, target_id, details, ip)
 values
-  ('AUD-001', '2024-10-16 14:22:10', 'Dr. Helena Vance', 'Mentor Approved Application', 'APP-2024-0850', 'Verified offer letter authenticity with HR Contact David K.', '192.168.1.104'),
+  ('AUD-001', '2024-10-16 14:22:10', 'Dr. Helena Vance', 'Mentor Approved Application', 'IN-3-7376242DS0810', 'Verified offer letter authenticity with HR Contact David K.', '192.168.1.104'),
   ('AUD-002', '2024-10-15 09:12:04', 'Alex Rivera', 'Uploaded Weekly Report #18', 'REP-001', 'Submitted 40 hours work log for CloudCore Systems.', '10.0.4.12')
 on conflict (id) do nothing;
 

@@ -91,9 +91,9 @@ export const HODDashboard: React.FC = () => {
         </div>
 
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">Avg Reward Points</span>
+          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">Avg CGPA</span>
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-slate-900">850 pts</span>
+            <span className="text-2xl font-black text-slate-900">3.88</span>
             <span className="text-xs text-slate-400">Department Score</span>
           </div>
         </div>

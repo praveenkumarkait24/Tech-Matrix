@@ -237,7 +237,7 @@ const localAuditLogs = [
     timestamp: '2024-10-16 14:22:10',
     username: 'Dr. Helena Vance',
     action: 'Mentor Approved Application',
-    target_id: 'APP-2024-0850',
+    target_id: 'IN-3-7376242DS0810',
     details: 'Verified offer letter authenticity with HR Contact David K.',
     ip: '192.168.1.104'
   },
@@ -319,7 +319,26 @@ const handleDbRoute = (entityName: string, supabaseTable: string, orderField?: s
     const record = req.body;
     try {
       if (!record.id) {
-        record.id = (entityName === 'applications' ? 'APP-2024-' : 'REC-') + Math.floor(1000 + Math.random() * 9000);
+        if (entityName === 'applications') {
+          const { count } = await supabase.from('applications').select('*', { count: 'exact', head: true });
+          const orderNo = (count || 0) + 1;
+          let rollNo = 'STUDENT';
+          if (record.student_id) {
+            const { data: profile } = await supabase
+              .from('profiles')
+              .select('student_id')
+              .eq('id', record.student_id)
+              .maybeSingle();
+            if (profile && profile.student_id) {
+              rollNo = profile.student_id;
+            } else {
+              rollNo = record.student_id.replace('USR-STU-', '');
+            }
+          }
+          record.id = `IN-${orderNo}-${rollNo}`;
+        } else {
+          record.id = 'REC-' + Math.floor(1000 + Math.random() * 9000);
+        }
       }
 
       const { data, error } = await supabase

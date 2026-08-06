@@ -7,7 +7,6 @@ import {
   Users, 
   Building2, 
   FileCheck2, 
-  LogOut,
   PlusCircle,
   Award,
   X,
@@ -22,12 +21,9 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const { 
     currentRole, 
-    currentUser, 
     currentView, 
     navigateTo, 
-    switchRole, 
     applications,
-    weeklyReports,
     openModal 
   } = useApp();
 
@@ -43,8 +39,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     return false;
   }).length;
 
-  const pendingReportsCount = weeklyReports.filter(r => r.status === 'Pending Review').length;
-
   const getNavItems = () => {
     switch (currentRole) {
       case 'student':
@@ -53,27 +47,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           { id: 'new-application', label: 'Apply Internship', icon: PlusCircle },
           { id: 'applications-list', label: 'My Applications', icon: FileText },
           { id: 'tracker', label: 'Internship Tracker', icon: Clock },
-          { id: 'report-submission', label: 'Report Submission', icon: FileCheck2 },
-          { id: 'reports', label: 'Weekly Journals', icon: Award }
+          { id: 'report-submission', label: 'Report Submission', icon: FileCheck2 }
         ];
       case 'mentor':
         return [
           { id: 'mentor-dashboard', label: 'Dashboard', icon: LayoutDashboard },
-          { id: 'applications-list', label: 'Assigned Students', icon: Users },
-          { id: 'reports', label: 'Reports & Reviews', icon: Award, badge: pendingReportsCount > 0 ? `${pendingReportsCount}` : undefined, badgeColor: 'bg-amber-500 text-white' }
+          { id: 'applications-list', label: 'Assigned Students', icon: Users }
         ];
       case 'hod':
         return [
           { id: 'hod-dashboard', label: 'Dashboard', icon: LayoutDashboard },
-          { id: 'applications-list', label: 'Department Students', icon: Users },
-          { id: 'reports', label: 'Reports & Reviews', icon: Award }
+          { id: 'applications-list', label: 'Department Students', icon: Users }
         ];
       case 'placement':
         return [
           { id: 'placement-dashboard', label: 'Dashboard', icon: LayoutDashboard },
           { id: 'companies', label: 'Company Directory', icon: Building2 },
-          { id: 'applications-list', label: 'Applications Queue', icon: FileText, badge: pendingCount > 0 ? `${pendingCount}` : undefined, badgeColor: 'bg-[#7c4dff] text-white' },
-          { id: 'reports', label: 'Reports Directory', icon: Award }
+          { id: 'applications-list', label: 'Applications Queue', icon: FileText, badge: pendingCount > 0 ? `${pendingCount}` : undefined, badgeColor: 'bg-[#7c4dff] text-white' }
         ];
       case 'admin':
         return [
@@ -167,30 +157,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
         </div>
 
-        {/* Role Switcher & User Profile */}
-        <div className="p-3 border-t border-slate-100 bg-slate-50/50">
 
-
-          <div className="flex items-center gap-3 p-2.5 bg-white rounded-xl border border-slate-200/80 shadow-2xs">
-            <div className="w-9 h-9 rounded-full bg-indigo-600 text-white flex items-center justify-center font-extrabold text-sm tracking-wide shrink-0 uppercase ring-2 ring-purple-500/30">
-              {currentUser?.name ? currentUser.name.charAt(0) : '?'}
-            </div>
-            <div className="flex-1 min-w-0">
-              <h2 className="text-xs font-bold text-slate-900 truncate">{currentUser?.name || 'Loading...'}</h2>
-              <p className="text-[10px] text-slate-500 truncate">{currentUser?.title || ''}</p>
-            </div>
-            <button
-              onClick={() => {
-                switchRole('public');
-                onClose();
-              }}
-              title="Switch Portal Role or Sign Out"
-              className="p-1.5 hover:bg-rose-50 rounded-lg text-slate-400 hover:text-rose-600 transition-colors cursor-pointer"
-            >
-              <LogOut className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
 
       </aside>
     </>

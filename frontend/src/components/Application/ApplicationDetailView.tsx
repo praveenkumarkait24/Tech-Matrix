@@ -153,7 +153,7 @@ System Digital Stamp: Verified by Academic Directorate.
   const [isAiAnalyzing, setIsAiAnalyzing] = useState(false);
   const [aiResult, setAiResult] = useState<string | null>(null);
 
-  const app = getApplicationById(selectedApplicationId || 'APP-2024-0842') || getApplicationById('APP-2024-0842');
+  const app = getApplicationById(selectedApplicationId || 'IN-1-7376242CS0842') || getApplicationById('IN-1-7376242CS0842');
 
   if (!app) {
     return (
@@ -525,25 +525,7 @@ System Digital Stamp: Verified by Academic Directorate.
               </div>
             </div>
 
-            {/* Application Audit Details Box */}
-            <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3 text-xs">
-              <h3 className="font-bold text-slate-500 uppercase tracking-wider text-[11px]">Application Audit Record</h3>
 
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Application Hash:</span>
-                  <span className="font-mono font-bold text-slate-800">{app.auditHash}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Submitted IP:</span>
-                  <span className="font-mono text-slate-800">{app.ipAddress}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Last Modified:</span>
-                  <span className="text-slate-800">{app.lastUpdated}</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

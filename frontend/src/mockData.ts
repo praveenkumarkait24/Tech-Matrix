@@ -203,7 +203,7 @@ export const INITIAL_AUDIT_LOGS: AuditLog[] = [
     timestamp: '2024-10-16 14:22:10',
     user: 'Dr. Helena Vance',
     action: 'Mentor Approved Application',
-    targetId: 'APP-2024-0850',
+    targetId: 'IN-3-7376242DS0810',
     details: 'Verified offer letter authenticity with HR Contact David K.',
     ip: '192.168.1.104'
   },

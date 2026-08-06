@@ -77,7 +77,7 @@ interface AppContextType {
   deleteUser: (id: string) => void;
   addDepartment: (dept: Partial<DepartmentRecord>) => void;
   issueNoc: (appId: string) => void;
-  uploadDocumentToApplication: (appId: string, document: { name: string; type: string; size: string }) => void;
+  uploadDocumentToApplication: (appId: string, document: { name: string; type: string; size: string }, file?: File) => Promise<void>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -96,7 +96,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return saved || 'landing';
   });
   const [selectedApplicationId, setSelectedApplicationId] = useState<string | null>(() => {
-    return localStorage.getItem('selectedApplicationId') || 'APP-2024-0842';
+    return localStorage.getItem('selectedApplicationId') || 'IN-1-7376242CS0842';
   });
 
   useEffect(() => {
@@ -655,7 +655,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const submitNewApplication = (newAppData: Partial<InternshipApplication>): InternshipApplication => {
-    const id = `APP-2024-${Math.floor(1000 + Math.random() * 9000)}`;
+    const orderNo = applications.length + 1;
+    const rollNo = currentUser.studentId || newAppData.studentId || currentUser.id || 'STUDENT';
+    const id = `IN-${orderNo}-${rollNo}`;
     const fullApp: InternshipApplication = {
       id,
       studentId: currentUser.id || 'USR-STU-001',
@@ -875,6 +877,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const openDocumentViewer = (doc: any) => {
+    if (doc.url && doc.url !== '#' && doc.url.startsWith('http')) {
+      window.open(doc.url, '_blank');
+      return;
+    }
     setSelectedDocument(doc);
     setActiveModal('doc_viewer');
   };
@@ -890,7 +896,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const submitTrackerLog = async (log: Partial<InternshipTrackerSubmission>) => {
     const newLog: InternshipTrackerSubmission = {
       id: 'TRK-' + Math.floor(1000 + Math.random() * 9000),
-      applicationId: log.applicationId || 'APP-2024-0842',
+      applicationId: log.applicationId || 'IN-1-7376242CS0842',
       studentId: currentUser.id,
       studentName: currentUser.name,
       logDate: new Date().toISOString().substring(0, 10),
@@ -940,7 +946,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const submitInternshipReport = async (report: Partial<InternshipReportSubmission>) => {
     const newReport: InternshipReportSubmission = {
       id: 'REP-SUB-' + Math.floor(1000 + Math.random() * 9000),
-      applicationId: report.applicationId || 'APP-2024-0842',
+      applicationId: report.applicationId || 'IN-1-7376242CS0842',
       studentId: currentUser.id,
       studentName: currentUser.name,
       companyName: report.companyName || '',
@@ -1299,7 +1305,34 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
-  const uploadDocumentToApplication = async (appId: string, documentData: { name: string; type: string; size: string }) => {
+  const uploadDocumentToApplication = async (
+    appId: string, 
+    documentData: { name: string; type: string; size: string },
+    file?: File
+  ) => {
+    let publicUrl = '#';
+    if (file) {
+      try {
+        const { supabase } = await import('../utils/supabase');
+        const filePath = `${appId}/${documentData.type.replace(/\s+/g, '_')}_${Date.now()}.pdf`;
+        
+        const { error } = await supabase.storage
+          .from('internship-docs')
+          .upload(filePath, file, { upsert: true });
+
+        if (error) throw error;
+
+        const { data: urlData } = supabase.storage
+          .from('internship-docs')
+          .getPublicUrl(filePath);
+
+        publicUrl = urlData.publicUrl;
+      } catch (err) {
+        console.error('Supabase Storage upload failed, falling back to local demo URL:', err);
+        publicUrl = URL.createObjectURL(file);
+      }
+    }
+
     let updatedApp: InternshipApplication | null = null;
     setApplications(prev => prev.map(app => {
       if (app.id !== appId) return app;
@@ -1316,7 +1349,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         type: documentData.type,
         size: documentData.size,
         uploadDate: new Date().toLocaleDateString(),
-        url: '#',
+        url: publicUrl,
         status: 'Verified'
       };
 

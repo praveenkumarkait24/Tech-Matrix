@@ -18,11 +18,9 @@ export const MentorDashboard: React.FC = () => {
   const { 
     currentUser, 
     applications, 
-    weeklyReports, 
     navigateTo, 
     approveApplication, 
     requestChangesApplication,
-    reviewWeeklyReport,
     showToast,
     trackerSubmissions,
     reportSubmissions,
@@ -47,17 +45,10 @@ export const MentorDashboard: React.FC = () => {
           <p className="text-xs text-slate-300 mt-0.5">{currentUser.department} • 42 Mentees Assigned</p>
         </div>
 
-        <button
-          onClick={() => navigateTo('reports')}
-          className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-xl shadow-lg transition-all flex items-center gap-2 cursor-pointer self-start sm:self-center"
-        >
-          <FileCheck className="w-4 h-4" />
-          <span>Review Pending Logbooks</span>
-        </button>
+
       </div>
 
-      {/* 4 Stats Cards */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
           <div className="flex justify-between items-center text-xs text-slate-500 font-semibold uppercase">
             <span>Pending Applications</span>
@@ -66,17 +57,6 @@ export const MentorDashboard: React.FC = () => {
           <div className="mt-3 flex items-baseline gap-2">
             <span className="text-2xl font-black text-slate-900">{pendingApps.length + 24}</span>
             <span className="text-xs font-bold text-rose-600">+3 High Priority</span>
-          </div>
-        </div>
-
-        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs">
-          <div className="flex justify-between items-center text-xs text-slate-500 font-semibold uppercase">
-            <span>Unread Weekly Logs</span>
-            <Clock className="w-5 h-5 text-amber-600" />
-          </div>
-          <div className="mt-3 flex items-baseline gap-2">
-            <span className="text-2xl font-black text-slate-900">{weeklyReports.filter(r => r.status === 'Pending Review').length + 12}</span>
-            <span className="text-xs font-semibold text-amber-600">8 Due Today</span>
           </div>
         </div>
 

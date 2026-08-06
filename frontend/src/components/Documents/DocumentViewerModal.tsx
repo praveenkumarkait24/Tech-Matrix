@@ -15,6 +15,11 @@ export const DocumentViewerModal: React.FC = () => {
   const isOfferLetter = selectedDocument.type?.toLowerCase().includes('offer') || selectedDocument.name?.toLowerCase().includes('offer');
 
   const handleDownload = () => {
+    if (selectedDocument.url && selectedDocument.url !== '#' && selectedDocument.url.startsWith('http')) {
+      window.open(selectedDocument.url, '_blank');
+      showToast('Download Started', `Downloading ${selectedDocument.name || 'document.pdf'}`, 'success');
+      return;
+    }
     const docName = selectedDocument.name || 'Document.pdf';
     const studentProfile = app ? usersList.find(u => u.id === app.studentId || u.email === app.studentEmail) : null;
     const studentRollNo = studentProfile?.studentId || app?.studentId || 'N/A';
