@@ -135,8 +135,8 @@ The workspace is linked and pushed directly to the remote repository:
 
 ## 👥 Team Details - Tech Matrix
 
-* **Team Leader**: **Indresh S** (Roll No: `7376242IT181`, Email: [indreshs.it24@bitsathy.ac.in](mailto:indreshs.it24@bitsathy.ac.in))
-* **Team Member 1**: **Praveen Kumar K A** (Roll No: `7376242IT259`, Email: [praveenkumarka.it24@bitsathy.ac.in](mailto:praveenkumarka.it24@bitsathy.ac.in))
-* **Team Member 2**: **Harish Ahamed K** (Roll No: `7376242IT175`, Email: [harishahamedk.it24@bitsathy.ac.in](mailto:harishahamedk.it24@bitsathy.ac.in))
+* **Team Leader**: **Indresh S** (Roll No: `7376242IT181`, Email: [indreshs.it24@bitsathy.ac.in](mailto:indreshs.it24@bitsathy.ac.in)) - [@Indreshsenthilkumar](https://github.com/Indreshsenthilkumar)
+* **Team Member 1**: **Praveen Kumar K A** (Roll No: `7376242IT259`, Email: [praveenkumarka.it24@bitsathy.ac.in](mailto:praveenkumarka.it24@bitsathy.ac.in)) - [@praveenkumarkait24](https://github.com/praveenkumarkait24)
+* **Team Member 2**: **Harish Ahamed K** (Roll No: `7376242IT175`, Email: [harishahamedk.it24@bitsathy.ac.in](mailto:harishahamedk.it24@bitsathy.ac.in)) - [@HARISH-AHAMED](https://github.com/HARISH-AHAMED)
 
 *Department of Information Technology, Bannari Amman Institute of Technology.*
